@@ -7,22 +7,14 @@ use Crypt::Random;
 
 
 subset PosInt of Int where * > 0;
-sub MAIN ( Str :$file = '/usr/share/dict/words', PosInt :$length = 5,
-           PosInt :$count = 1, Bool :$dashes = False,
-           Bool :$diceware = False, Bool :$entropy = False)
+sub MAIN ( Str :$wordfile = '/usr/share/dict/words', PosInt :$length = 5,
+           PosInt :$count = 1, Bool :$dashes = False, Bool :$entropy = False)
 {
     my $separator;
     if ($dashes) {
         $separator = "-";
     } else {
         $separator = " ";
-    }
-
-    my $wordfile;
-    if ($diceware) {
-        $wordfile = %?RESOURCES<diceware8k.txt>.Str;
-    } else {
-        $wordfile = $file;
     }
 
     my @words = $wordfile.IO.words;

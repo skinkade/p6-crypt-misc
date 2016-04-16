@@ -31,15 +31,17 @@ Defaults to reading from `/usr/share/dict/words`, with a single five-word phrase
 ```
 $ p6-passphrase --help
 Usage:
-  p6-passphrase [--wordfile=<Str>] [--length=<Int>] [--count=<Int>] [--dashes] [--diceware] [--entropy]
-$ p6-passphrase
-intransparency acanthaceous threnetical unread unknelled
-$ p6-passphrase --diceware --entropy --length=6 --count=5
+  p6-passphrase [--wordfile=<Str>] [--length=<Int>] [--count=<Int>] [--dashes] [--entropy]
+
+$ p6-passphrase --dashes
+fairtime-insweeping-electrogilding-pyrena-French
+
+$ p6-passphrase --wordfile=diceware8k.txt --length=6 --count=5 --entropy
 The following phrase(s) have 78.00 bits of entropy:
 --------------------------------------------------
-else yl olaf washy ridge n4
-bayed hip seven whelm avid 6q
-affix skiff bowen pease wept hr
-ym chase shy duly altar calve
-swing spooky leapt yv leek year
+plank ache q7 hr drawn sag
+yc chunk usaf dart dint plate
+gust earn solve hunk au attire
+wa boost roth ingot lurid 25
+uo arena xk naacp border xx
 ```

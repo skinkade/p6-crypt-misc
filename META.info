@@ -1,6 +1,6 @@
 {
     "name" : "Crypt::Misc",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "author" : "Shawn Kinkade",
     "description" : "Sundry crypto stuff",
     "depends" : [ ],
@@ -8,6 +8,6 @@
         "Crypt::Misc::PGP-Words" : "lib/Crypt/Misc/PGP-Words.pm6",
         "Crypt::Misc::PGP-Words::Words" : "lib/Crypt/Misc/PGP-Words/Words.pm6"
     },
-    "resources" : [ "diceware8k.txt" ],
+    "resources" : [ ],
     "source-url" : "git://github.com/skinkade/p6-crypt-misc.git"
 }
