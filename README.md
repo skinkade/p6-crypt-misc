@@ -26,3 +26,20 @@ Words: cement autopsy sentence December playhouse company vapor celebrate
 Bytes: 2f10b9429331f527
 ```
 
+## Passphrase generation
+Defaults to reading from `/usr/share/dict/words`, with a single five-word phrase.
+```
+$ p6-passphrase --help
+Usage:
+  p6-passphrase [--wordfile=<Str>] [--length=<Int>] [--count=<Int>] [--dashes] [--diceware] [--entropy]
+$ p6-passphrase
+intransparency acanthaceous threnetical unread unknelled
+$ p6-passphrase --diceware --entropy --length=6 --count=5
+The following phrase(s) have 78.00 bits of entropy:
+--------------------------------------------------
+else yl olaf washy ridge n4
+bayed hip seven whelm avid 6q
+affix skiff bowen pease wept hr
+ym chase shy duly altar calve
+swing spooky leapt yv leek year
+```

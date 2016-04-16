@@ -1,0 +1,45 @@
+#!/usr/bin/env perl6
+
+use v6;
+use strict;
+use Crypt::Random;
+
+
+
+subset PosInt of Int where * > 0;
+sub MAIN ( Str :$file = '/usr/share/dict/words', PosInt :$length = 5,
+           PosInt :$count = 1, Bool :$dashes = False,
+           Bool :$diceware = False, Bool :$entropy = False)
+{
+    my $separator;
+    if ($dashes) {
+        $separator = "-";
+    } else {
+        $separator = " ";
+    }
+
+    my $wordfile;
+    if ($diceware) {
+        $wordfile = %?RESOURCES<diceware8k.txt>.Str;
+    } else {
+        $wordfile = $file;
+    }
+
+    my @words = $wordfile.IO.words;
+    my $listlen = @words.elems;
+
+    if ($entropy) {
+        printf("The following phrase(s) have %.2f bits of entropy:\n",
+                $listlen.log(2) * $length);
+        for 1..50 { printf('-') }; printf("\n");
+    }
+
+    for ^$count {
+        my @passphrase;
+        for ^$length {
+            my $rand_ele = crypt_random_uniform($listlen);
+            @passphrase.push(@words[$rand_ele]);
+        }
+        say @passphrase.join($separator);
+    }
+}
