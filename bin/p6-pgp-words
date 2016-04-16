@@ -1,0 +1,29 @@
+#!/usr/bin/env perl6
+
+use v6;
+use strict;
+use Crypt::Misc::PGP-Words;
+
+
+
+multi sub MAIN ( Str $file ) {
+    my $fd = open($file, :bin);
+    my $buf = Buf.new;
+
+    loop {
+        $buf = $fd.read(4);
+        if !$buf {
+            last;
+        } else {
+            say pgp-words-enc($buf).join(' ');
+        }
+    }
+}
+
+multi sub MAIN () {
+    printf "Words: ";
+    say "Bytes: ", pgp-words-dec($*IN.get.words)>>.fmt("%02x").join;
+}
+
+
+# vim: ft=perl6
